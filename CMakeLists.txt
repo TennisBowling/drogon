@@ -197,10 +197,11 @@ else()
 endif()
 
 # jsoncpp
+include(FetchContent)
 FetchContent_Declare(jsoncpp GIT_REPOSITORY https://github.com/open-source-parsers/jsoncpp.git
     GIT_TAG 5defb4ed1a4293b8e2bf641e16b156fb9de498cc)
 FetchContent_MakeAvailable(jsoncpp)
-target_link_libraries(${PROJECT_NAME} PUBLIC jsoncpp::jsoncpp)
+target_link_libraries(${PROJECT_NAME} PUBLIC jsoncpp_lib)
 list(APPEND INCLUDE_DIRS_FOR_DYNAMIC_VIEW ${JSONCPP_INCLUDE_DIRS})
 
 if (NOT ${CMAKE_SYSTEM_NAME} STREQUAL "FreeBSD"
